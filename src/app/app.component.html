@@ -1,0 +1,152 @@
+<!-- navbar started -->
+<header id="topnav" class="navbar navbar-fixed-top navbar-indigo" role="banner">
+
+  <div class="logo-area">
+    <span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
+      <a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+        <span class="icon-bg">
+          <i class="fa fa-bars"></i>
+        </span>
+      </a>
+    </span>
+
+    <a class="navbar-brand" (click)="onTitleClick()">
+      <img src="{{Logo}}" alt="logo" class="logo-default">
+    </a>
+  </div>
+  <div class="logo-area hidden-xs hidden-sm">
+    <span class="projectName" (click)="onTitleClick()">Vendor Communication System</span>
+  </div>
+  <!-- logo-area -->
+
+  <ul class="nav navbar-nav toolbar pull-right">
+    <li class="dropdown toolbar-icon-bg">
+      <a href="#" class="dropdown-toggle username" data-toggle="dropdown" aria-expanded="false" style="color:white !important">
+        <i class="fa fa-user"></i> {{loggedInUserName ? loggedInUserName : 'NA'}}
+        <i class="fa fa-caret-down"></i>
+      </a>
+      <ul class="dropdown-menu userinfo arrow">
+        <!-- <li>
+          <a (click)="onAboutMe()">
+            <i class="fa fa-user-circle fa-fw"></i> About Me</a>
+        </li> -->
+        <li>
+          <a (click)="onSignInDiffUser()">
+            <i class="fa fa-sign-in fa-fw"></i> Sign in as Different User</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a (click)="onSignOut()">
+            <i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        </li>
+      </ul>
+    </li>
+    <button class="btn btn-warning" (click)="backToAhead();" *ngIf="showBtn">Back to Ahead</button>
+  </ul>
+
+</header>
+<!-- navbar ended -->
+
+<!-- siddebar Started -->
+<div id="wrapper">
+  <div id="layout-static">
+    <div class="static-sidebar-wrapper sidebar-black">
+      <div class="static-sidebar" style="top: 56px;">
+        <div class="sidebar" tabindex="0">
+          <div class="widget">
+            <div class="widget-body">
+              <div class="userinfo">
+                <!-- <div class="avatar">
+                  <img src="{{Image}}" class="img-responsive img-circle" style="    height: 100%;">
+                </div> -->
+                <div class="info">
+                  <span class="username">{{loggedInUserName ? loggedInUserName : 'NA'}}</span><br>
+                  <span class="useremail">{{userFunction ? userFunction.UserDetail.EMail : ''}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget stay-on-collapse" id="widget-sidebar">
+            <nav role="navigation" class="widget-body">
+              <ul class="acc-menu">
+                <li class="nav-separator">
+                  <span>Explore</span>
+                </li>
+                <li routerLink="/vendor-communication" routerLinkActive="active">
+                  <a>
+                    <i class="fa fa-home"></i>
+                    <span>Vendor Communication</span>
+                  </a>
+                </li>
+                <li routerLink="/vendor-discussion" routerLinkActive="active">
+                  <a>
+                    <i class="fa fa-home"></i>
+                    <span>Vendor Discussion</span>
+                  </a>
+                </li>
+                <!-- *ngIf="hasAdminAccess" -->
+                <li class="hasChild" *ngIf="hasAdminAccess">
+                  <a href="javascript:;">
+                    <i class="fa fa-user"></i>
+                    <span>Admin Panel</span>
+                  </a>
+                  <ul class="acc-menu">
+                    <li routerLink="/vendor-mapping" routerLinkActive="active">
+                      <a>Vendor Mapping</a>
+                    </li>
+                    <li routerLink="/brand-notify" routerLinkActive="">
+                      <a>Brand Notify</a>
+                    </li>
+                    <!-- <li>
+                      <a href="layout-sidebar-scroll.html">Scroll Sidebar</a>
+                    </li>
+                    <li>
+                      <a href="layout-horizontal.html">Horizontal Nav</a>
+                    </li>
+                    <li>
+                      <a href="layout-boxed.html">Boxed</a>
+                    </li> -->
+                  </ul>
+                </li>
+                <!-- <li class="hasChild open">
+                  <a href="javascript:;">
+                    <i class="fa fa-university"></i>
+                    <span>RMS</span>
+                  </a>
+                  <ul class="acc-menu" style="display:block;">
+                    <li *ngFor="let menu of rmsMenu">
+                      <a href="{{menu.Path}}">{{menu.Title}} </a>
+                    </li>
+
+                  </ul>
+                </li> -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="scroll-track" style="display: none;">
+          <div class="scroll-thumb" style="height: 697px; transform: translate(0px, 0px);"></div>
+        </div>
+      </div>
+    </div>
+    <div class="static-content-wrapper">
+      <div class="static-content">
+        <p-growl [value]="msgs" [life]="5000"></p-growl>
+        <router-outlet></router-outlet>
+      </div>
+      <footer role="contentinfo">
+        <div class="clearfix">
+          <ul class="list-unstyled list-inline pull-left">
+            <li>
+              <h6 style="margin: 0;">Bajaj Auto (Browser Compatibility : Chrome > v50.0 , IE > v10.0)</h6>
+            </li>
+          </ul>
+          <button class="pull-right btn btn-link btn-xs hidden-print" id="back-to-top">
+            <i class="fa fa-arrow-up"></i>
+          </button>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <story-spinner></story-spinner>
+</div>

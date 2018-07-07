@@ -1,0 +1,9 @@
+.vehicleDetailsGrid { 
+    padding-left: 15px; padding-right: 15px !important; padding-bottom: 15px;
+}
+.vehicleGreenHead{
+    background:#dff0d8;
+}
+label {
+    font-weight: 600 !important;
+}

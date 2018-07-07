@@ -1,0 +1,104 @@
+<!-- [ngStyle]="{'background-image': 'url(' + bgImage + ')'}" -->
+<div class="side-form" style="background:#e0e0e0 !important;">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-12 col-sm-12 col-lg-12">
+            <div class="panel panel-teal" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+                <div class="panel-heading">
+                    Create Vendor Discussion
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="ng-pristine ng-valid" (ngSubmit)="onVendorDiscussion(vendorDiscussionForm)" [formGroup]="vendorDiscussionForm">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Discussion Title
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" placeholder="Discussion Title" maxlength="250" pTooltip="Discussion Title" tooltipPosition="top" name="name" formControlName="DisussionTitle"
+                                        class="form-control" />
+                                    <div class="required" *ngIf="vendorDiscussionForm.get('DisussionTitle').hasError('required') && errorFlagForAdd">
+                                        Please enter discussion title
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Date and Time
+                                        <span class="required">*</span>
+                                    </label>
+                                    <p-calendar [showIcon]="true" [minDate]="minDate" [showTime]="true" dateFormat="dd/mm/yy" placeholder="dd/MM/yyyy HH:MM"
+                                        readonlyInput="true" formControlName="DateTime"></p-calendar>
+                                    <div class="required" *ngIf="vendorDiscussionForm.get('DateTime').hasError('required') && errorFlagForAdd">
+                                        Please Select date and time
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Category
+                                        <span class="required">*</span>
+                                    </label>
+                                    <select class="form-control" pTooltip="Category" tooltipPosition="top" formControlName="Category" (change)="onCategory($event.target.value)">
+                                        <option value="" disabled selected="selected">--Select Category--</option>
+                                        <option *ngFor="let category of categoryData" value="{{category.Name}}">{{category.Name}}</option>
+                                    </select>
+                                    <div class="required" *ngIf="vendorDiscussionForm.get('Category').hasError('required') && errorFlagForAdd">
+                                        Please Select Category
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Vendor
+                                        <span class="required">*</span>
+                                    </label>
+                                    <select class="form-control" pTooltip="Vendor" tooltipPosition="top" formControlName="Vendor">
+                                        <option value="" disabled selected="selected">--Select Vendor--</option>
+                                        <option *ngFor="let vendor of vendorData" value="{{vendor.Name}}">{{vendor.Name}}</option>
+                                    </select>
+                                    <div class="required" *ngIf="vendorDiscussionForm.get('Vendor').hasError('required') && errorFlagForAdd">
+                                        Please Select vendor
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Description</label>
+                                    <textarea class="form-control" maxlength="1500" placeholder="Description" pTooltip="Description" tooltipPosition="top" formControlName="Description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Attachment</label>
+                                    <input id="file_input_file" type="file" class="upload" (change)="postFile($event)" style="width:100%" />
+
+                                    <span style="color:green">[Note :1.Please remove special characters / [ ! @ # $ % ^ & * + \ = [ ] ; ' : "
+                                        | , .
+                                        <> / ? ] from file name if any. 2. Max size 50 mb ]</span>
+                                </div>
+                                <div class="form-group" style="min-height: 50px;" *ngIf="filesData.length > 0">
+                                    <label>File Name(s) : </label>
+                                    <br>
+                                    <div *ngFor="let data of filesData; index as i">
+                                        <span class="statusLabel pull-left">{{data.name}}</span>
+                                        <span class="ng-isolate-scope" (click)="deleteUploadedFile(i)">
+                                            <i class="fa fa-trash" style="color: red;"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary" [disabled]="disableSubmit">Save</button>
+                            <a class="btn btn-danger" routerLink="/vendor-discussion">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="content-heading">
+        <i class="fa fa-user fa-fw"></i> Plant Info List
+        <div class="hidden-xs pull-right">
+                <div class="col-lg-6">
+                        <button class="btn btn-dark btn-sm" (click)="onAddRequest()">
+                                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Plant</button>
+                </div>
+        </div>
+        <div class="visible-xs pull-right">
+                <button class="btn btn-dark btn-md" (click)="onAddRequest()">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </button>
+        </div>
+</div>
+
+<!-- Brand form starts -->
+<div class="row" *ngIf="showPlantForm">
+        <div class="col-lg-12 col-md-12">
+                <div class="panel panel-info">
+                        <div class="panel-heading" style="padding: 5px 15px !important;">
+                                <i class="fa fa-plus-circle fa-fw"></i> Add Purpose </div>
+                        <div class="panel-body">
+                                <form role="form" class="ng-pristine ng-valid" (ngSubmit)="onSubmit(PlantForm)" [formGroup]="PlantForm">
+                                        <div class="row">
+                                                <div class="col-lg-4 col-md-4 col-xlg-3">
+                                                        <div class="form-group">
+                                                                <label>Plant Name :</label>
+                                                                <span class="required"> *</span>
+                                                                <br>
+                                                                <input class="form-control" type="text" placeholder="Please enter Plant Name" pTooltip="Enter Plant Name" tooltipPosition="top" formControlName="PlantName">
+                                                                <div class="required" *ngIf="PlantForm.get('PlantName').hasError('required') && errorFlag">
+                                                                        Please enter Plant Name
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-xlg-3">
+                                                        <div class="form-group">
+                                                                <label>Email :</label>
+                                                                <span class="required"> *</span>
+                                                                <br>
+                                                                <input class="form-control" type="text" placeholder="Please enter Email" pTooltip="Enter Email"
+                                                                        tooltipPosition="top" formControlName="Emails">
+                                                                <div class="required" *ngIf="PlantForm.get('Emails').hasError('required') && errorFlag">
+                                                                        Please enter Email
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-xlg-3">
+                                                        <div class="form-group">
+                                                                <label></label>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-success" value="Save">Save</button>
+                                                                <button type="button" class="btn btn-danger" (click)="onCancel()" value="Save">Cancel</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </form>
+                        </div>
+                </div>
+        </div>
+</div>
+<!-- Brand form ends -->
+<p-confirmDialog header="Confirmation" icon="fa fa-question-circle"></p-confirmDialog>
+<!-- Grid Component starts -->
+<div class="row" style="margin-bottom:40px; font-size: small;">
+        <div class="ui-widget-header" style="padding:1px 10px;border-bottom: 0 none">
+                <div class="searchHeader" style="text-align: right;">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input #gb type="text" pInputText size="25" placeholder="Search">
+                </div>
+        </div>
+        <p-dataTable #dt [value]="plantData" expandableRows="true" [responsive]="true" reorderableColumns="true" [globalFilter]="gb"
+                [rows]="20" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[20,50,100,250]" [rowHover]="true">
+                <p-column field="ID" header="ID" [sortable]="true" [style]="{'text-align':'left','vertical-align': 'top'}"></p-column>
+                <p-column field="PlantName" header="Title" [sortable]="true" [style]="{'text-align':'left','vertical-align': 'top'}"></p-column>
+                <p-column field="Emails" header="Emails" [sortable]="true" [style]="{'text-align':'left','vertical-align': 'top'}"></p-column>
+                <p-column [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}" header="Action">
+                        <ng-template let-request="rowData" pTemplate="body">
+                                <button class="btn btn-info btn-circle" ptooltip="Click to Edit" tooltipposition="left" (click)="onEdit(request)">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                </button>
+                                <button class="btn btn-danger btn-circle" ptooltip="Click to Delete" tooltipposition="left" (click)="onDelete(request)">
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                </button>
+                        </ng-template>
+                </p-column>
+        </p-dataTable>
+</div>
+<!-- Grid component ends -->

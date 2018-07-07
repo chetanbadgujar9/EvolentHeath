@@ -1,0 +1,90 @@
+<div class="content-heading">
+    <i class="fa fa-user fa-fw"></i> Purpose Master
+    <div class="hidden-xs pull-right">
+        <div class="col-lg-6">
+            <button class="btn btn-dark btn-sm" (click)="onAddRequest()">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> Add Purpose</button>
+        </div>
+    </div>
+    <div class="visible-xs pull-right">
+        <button class="btn btn-dark btn-md" (click)="onAddRequest()">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Brand form starts -->
+<div class="row" *ngIf="showPurposeForm">
+    <div class="col-lg-12 col-md-12">
+        <div class="panel panel-info">
+            <div class="panel-heading" style="padding: 5px 15px !important;">
+                <i class="fa fa-plus-circle fa-fw"></i> Add Purpose </div>
+            <div class="panel-body">
+                <form role="form" class="ng-pristine ng-valid" (ngSubmit)="onSubmit(PurposeForm)" [formGroup]="PurposeForm">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-xlg-3">
+                            <div class="form-group">
+                                <label>Title :</label>
+                                <span class="required"> *</span>
+                                <br>
+                                <input class="form-control" type="text" placeholder="Please enter Title" [(ngModel)]="title" pTooltip="Enter Title" tooltipPosition="top"
+                                    formControlName="Title" (keyup)="toUppercaseString(title)">
+                                <div class="required" *ngIf="PurposeForm.get('Title').hasError('required') && errorFlag">
+                                    Please enter Title
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-xlg-3">
+                            <div class="form-group">
+                                <label>Purpose Description :</label>
+                                <span class="required"> *</span>
+                                <br>
+                                <input class="form-control" type="text" placeholder="Please enter Purpose Description" pTooltip="Enter Purpose Description" tooltipPosition="top"
+                                    formControlName="PurposeDescription">
+                                <div class="required" *ngIf="PurposeForm.get('PurposeDescription').hasError('required') && errorFlag">
+                                    Please enter Purpose Description
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-xlg-3">
+                            <div class="form-group">
+                                <label></label>
+                                <br>
+                                <button type="submit" class="btn btn-success" value="Save">Save</button>
+                                <button type="button" class="btn btn-danger" (click)="onCancel()" value="Save">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand form ends -->
+<p-confirmDialog header="Confirmation" icon="fa fa-question-circle"></p-confirmDialog>
+<!-- Grid Component starts -->
+<div class="row" style="margin-bottom:40px; font-size: small;">
+    <div class="ui-widget-header" style="padding:1px 10px;border-bottom: 0 none">
+        <div class="searchHeader" style="text-align: right;">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input #gb type="text" pInputText size="25" placeholder="Search">
+        </div>
+    </div>
+    <p-dataTable #dt [value]="purposeData" expandableRows="true" [responsive]="true" reorderableColumns="true" [globalFilter]="gb"
+        [rows]="20" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[20,50,100,250]" [rowHover]="true">
+        <p-column field="ID" header="ID" [sortable]="true" [style]="{'text-align':'left','vertical-align': 'top'}"></p-column>
+        <p-column field="Title" header="Title" [sortable]="true" [style]="{'text-align':'left','vertical-align': 'top'}"></p-column>
+        <p-column field="PurposeDescription" header="Purpose Description" [sortable]="true" [style]="{'text-align':'left','vertical-align': 'top'}"></p-column>
+        <p-column [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}" header="Action">
+            <ng-template let-request="rowData" pTemplate="body">
+                <button class="btn btn-info btn-circle" ptooltip="Click to Edit" tooltipposition="left" (click)="onEdit(request)">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </button>
+                <button class="btn btn-danger btn-circle" ptooltip="Click to Delete" tooltipposition="left" (click)="onDelete(request)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+</div>
+<!-- Grid component ends -->

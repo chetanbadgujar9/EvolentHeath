@@ -1,0 +1,136 @@
+<!-- VD discussion -->
+<div class="panel panel-active" *ngIf="!showClose" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);margin-bottom:1px;">
+    <div class="panel-heading">
+        <h2 style="color:#e51c23;"> Details of VDID : {{vdid}}</h2>
+        <!-- <a class="btn btn-danger pull-right" style="margin-top: 5px;" *ngIf="showClose" (click)="onBack()">Close</a> -->
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label>
+                            <strong>Description on data supplied </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <div class="form-group">
+                        <label>
+                            : {{details ? details.Description : '-'}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label>
+                            <strong>GL Name </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <div class="form-group">
+                        <label>
+                            : {{details ? details.GLName.Name : '-'}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label>
+                            <strong>Status </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <div class="form-group">
+                        <label>
+                            : {{details ? details.Status : '-'}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label>
+                            <strong>Vendor </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <div class="form-group">
+                        <label for="name">
+                            : {{details ? details.Vendor : '-'}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label>
+                            <strong>Attachment </strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-8 col-lg-8">
+                    <div class="form-group" *ngIf="showAttachment">
+                        <label for="name" *ngFor="let data of details.AttachmentFiles" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                             <a (click)="downloadFile(data)" title="{{details.AttachmentFiles ? data.FileName : 'download'}}">
+                                <i class="fa fa-paperclip" aria-hidden="true"></i> {{details.AttachmentFiles ? data.FileName : 'download'}} </a>
+                                <!-- <ul>
+                                        <li *ngFor="let data of details.AttachmentFiles">
+                                            <a (click)="downloadFile(data)" pTooltip="Click to View Attachment" tooltipPosition="left">
+                                                <i class="fa fa-paperclip" aria-hidden="true"></i> {{data ? data.FileName : 'download'}}</a>
+                                        </li>
+                                    </ul> -->
+                        </label><br *ngIf="details.Attachments">
+                        <label for="name" *ngIf="!details.Attachments">
+                            : No Attachment Found
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Chat box -->
+<div class="panel panel-active" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+    <!-- <div class="panel-heading">
+        <h2>Chat Box of VDID : {{vdid}}</h2>
+    </div> -->
+    <div class="panel-body scroll-pane has-scrollbar" style="min-height: 550px; padding:0px !important;">
+        <div class="scroll-content" tabindex="0" style="right: -17px; padding:0px !important;">
+            <div #scrollMe class="chat-conversation-content" *ngIf="discussion.length > 0">
+                <div *ngFor="let disc of discussion" style="margin-bottom:17px;">
+                    <p class="text-muted small text-uppercase bold {{disc.TextClass}}"> - {{disc.ModifiedBy1 ? disc.ModifiedBy1 : ''}} </p>
+                    <div class="chat-conversation-user {{disc.CSSclass}}">
+                        <div class="chat-conversation-message" [innerHTML]="disc.Body">
+                        </div>
+                    </div>
+                    <p class="text-muted small text-uppercase {{disc.TextClass}}"> {{disc.Created | date : 'dd/MM/yyyy hh:mm:ssa'}} </p>
+                </div>
+            </div>
+            <div class="chat-conversation-content" *ngIf="discussion.length === 0 && !disableFooter">
+                <p class="text-center text-muted small text-uppercase bold pb15"> Be the first to comment on this discussion </p>
+            </div>
+            <div class="chat-conversation-content" *ngIf="discussion.length === 0 && disableFooter">
+                <p class="text-center text-muted small text-uppercase bold pb15"> Vendor Dicussion not found </p>
+            </div>
+            <div class="chat-conversation-footer">
+                <div class="chat-input">
+                    <textarea class="form-control" [disabled]="disableFooter" maxlength="1500" placeholder="Write Something..." style="width: 100%; border-color: white; height:35px !important;" name="chatcontent" [(ngModel)]="chatContent" (keydown)="onEnterKey($event)"></textarea>
+                </div>
+                <button class="chat-send" (click)="onSendChat()" [disabled]="disableFooter">
+                    <i class="fa fa-paper-plane" style="color: forestgreen;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

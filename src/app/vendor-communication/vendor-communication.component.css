@@ -1,0 +1,50 @@
+.vehicleDetailsGrid { 
+    padding-left: 15px; padding-right: 15px !important; padding-bottom: 15px;
+}
+.vehicleGreenHead{
+    background:#dff0d8;
+}
+.fillError {
+    color:red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+.calender{
+    width: 200%;
+}
+.ui-calendar{
+    width:100% !important;
+}
+.ui-calendar.ui-calendar-w-btn input {
+    width: 93% !important;
+}
+.btn-group-justified {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: separate;
+    margin-left: -14px;
+}
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.btn-primary{
+    height:43px;
+}
+.btn-primary :focus{
+    border-color: #007399;
+    background-color: #007399;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    li {
+         margin-left: 10px;
+    }
+ }
+/* li::before {content: "•"; color: red} */

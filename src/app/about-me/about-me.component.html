@@ -1,0 +1,192 @@
+<div class="content-heading">
+    <i class="fa fa-user-circle fa-fw"></i> About Me
+</div>
+<div class="row" style="margin-top:10px;">
+    <section class="panel panel-info">
+        <div class="panel-heading">
+            <strong> About Me</strong>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading" style="padding: 5px 15px !important;">
+                            <i class="fa fa-user-circle fa-fw"></i> Personal Info </div>
+                        <div class="panel-body">
+                            <form role="form" class="ng-pristine ng-valid">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Name :</label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.PersonName" name="name" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Gender : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Gender" name="gender" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Date Of Birth : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.DateOfBirth" name="dob" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Blood Group : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.BloodGroup" name="bg" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Address :</label>
+                                            <textarea class="form-control" type="text" [(ngModel)]="employeeInfo.ResidencAddress" name="addr" disabled></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Personal Email : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.EmailPersonal" name="email" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Contact Number : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.ContactNo" name="number" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Passport Exp Date : </label>
+                                            <input type="text" class="form-control" type="text" [(ngModel)]="employeeInfo.PassportExpDate" name="passport" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Driving License Type : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.DrivingLicenseType" name="licence" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Driving License No : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.DrivingLicenseNo" name="no" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Two Wheeler No : </label>
+                                            <input type="text" class="form-control" type="text" [(ngModel)]="employeeInfo.TwoWheeleNo" name="twowheeler" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Four Wheeler No : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.FourWheelerNo" name="fourwheer" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel panel-success">
+                        <div class="panel-heading" style="padding: 5px 15px !important;">
+                            <i class="fa fa-user-circle fa-fw"></i> Professional Info </div>
+                        <div class="panel-body">
+                            <form role="form" class="ng-pristine ng-valid">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Group : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Group" name="Group" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Level : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Level" name="Level" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Grade : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Grade" name="Grade" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Designation : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Designation" name="Designation" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Date Of Joining : </label>
+                                            <input type="text" class="form-control" type="text" [(ngModel)]="employeeInfo.DateOfJoining" name="DateOfJoining" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Date Of Joining RnD : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.DateOfJoiningRnD" name="DateOfJoiningRnD" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Extension No. : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Extn" name="Extn" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Email : </label>
+                                            <input type="text" class="form-control" type="text" [(ngModel)]="employeeInfo.Email" name="Email" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label class="control-label">PC Name : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.PCName" name="PCName" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label>Domain User Name : </label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.DomainUserName" name="DomainUserName" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label class="control-label">TC User Name : </label>
+                                            <input type="text" class="form-control" type="text" [(ngModel)]="employeeInfo.TCUserName" name="TCUserName" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xlg-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Division :</label>
+                                            <input class="form-control" type="text" [(ngModel)]="employeeInfo.Div" name="Div" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

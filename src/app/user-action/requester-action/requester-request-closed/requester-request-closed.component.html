@@ -1,0 +1,253 @@
+<!--  -->
+<div class="side-form" style="background:#e0e0e0 !important;">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-8 col-sm-8 col-lg-8" style="padding-left: 5px;padding-right: 5px;">
+            <div class="panel panel-midnightblue" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+                <div class="panel-heading">
+                    Requester Request Closure
+                </div>
+                <div class="panel-body">
+                    <!-- for vendor comunication -->
+                    <form *ngIf="show">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>VCID :</strong> {{vendorCommunicationData ? vendorCommunicationData.Title : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Item ID :</strong> {{vendorCommunicationData ? vendorCommunicationData.ItemID : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Item Description :</strong> {{vendorCommunicationData ? vendorCommunicationData.ItemDescription
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Category :</strong> {{vendorCommunicationData ? vendorCommunicationData.Category
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Brand :</strong> {{vendorCommunicationData ? vendorCommunicationData.Brand : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Project :</strong> {{vendorCommunicationData ? vendorCommunicationData.Project :
+                                        ''}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Requirement :</strong> {{vendorCommunicationData ? vendorCommunicationData.Requirement
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>System :</strong> {{vendorCommunicationData ? vendorCommunicationData.System : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Description on data supplied :</strong> {{vendorCommunicationData ? vendorCommunicationData.DescriptionOnData
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Created By :</strong> {{vendorCommunicationData ? (vendorCommunicationData.CreatedBy1
+                                        ? vendorCommunicationData.CreatedBy1 : vendorCommunicationData.CreatedBy.Name) :
+                                        ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Created On :</strong> {{vendorCommunicationData.Created | date : 'dd-MM-yyyy'}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Vendor :</strong> {{vendorCommunicationData ? vendorCommunicationData.Vendor : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Vendor Name(s) :</strong>
+                                        <span>
+                                            {{vendors ? vendors : ''}}
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>GL Name :</strong> {{vendorCommunicationData ? vendorCommunicationData.GLName.Name
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>GL Approval :</strong> {{vendorCommunicationData ? vendorCommunicationData.GLApproval
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>GL Comments :</strong> {{vendorCommunicationData ? vendorCommunicationData.GLComments
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>CD Approval :</strong> {{vendorCommunicationData ? vendorCommunicationData.CDApproval
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>CD Comments :</strong> {{vendorCommunicationData ? vendorCommunicationData.CDComments
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Current Vendor Status :</strong> {{vendorCommunicationData ? (vendorCommunicationData.VendorStatus.split('.')[1])
+                                        : ''}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Attachment(s) :</strong>
+                                        <ul>
+                                            <li *ngFor="let data of vendorCommunicationData.AttachmentFiles">
+                                                <a (click)="downloadFile(data)" title="{{data ? data.FileName : 'download'}}">
+                                                    <i class="fa fa-paperclip" aria-hidden="true"></i> {{data ? data.FileName : 'download'}}</a>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Vendor Status :</strong>
+                                    </label>
+                                    <select class="form-control" pTooltip="Vendor Status" tooltipPosition="top" name="status" [(ngModel)]="VendorStatus" (change)="onStatus($event.target.value)">
+                                        <option value="" disabled selected="selected">--Select--</option>
+                                        <option *ngFor="let stat of status" value="{{stat}}">{{stat.split('.')[1]}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <strong>Comments:</strong>
+                                        <span class="required">*</span>
+                                    </label>
+                                    <textarea class="form-control" maxlength="1500" placeholder="Comments" name="comment" pTooltip="Comments" tooltipPosition="top" [(ngModel)]="Comment"></textarea>
+                                    <div class="required" *ngIf="showError">
+                                        Please enter comments
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="isApproved">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name" style="color:red;">
+                                        You have already taken action on this request.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="form-group">
+                                    <a class="btn btn-success" (click)="onRequestClose()" *ngIf="!isApproved">Submit</a>
+                                    <a class="btn btn-danger" (click)="onBack()">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Discussion board -->
+        <div class="col-md-4 col-sm-4 col-lg-4" style="padding-left: 5px;padding-right: 5px;">
+            <app-discussion-details [vdid]="vdID" *ngIf="vdID !== ''"></app-discussion-details>
+        </div>
+    </div>
+</div>
