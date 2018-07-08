@@ -25,6 +25,9 @@ export class AddContactComponent implements OnInit {
     /**Form Variables */
     AddContactForm: FormGroup;
 
+    mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
+    emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+
     constructor(
         private _router: Router,
         private _messageService: MessageService,
@@ -40,8 +43,8 @@ export class AddContactComponent implements OnInit {
         this.AddContactForm = this.formBuilder.group({
             FirstName: ['', [Validators.required]],
             LastName: ['', [Validators.required]],
-            Email: ['', [Validators.required]],
-            PhoneNumber: ['', [Validators.required]],
+            Email: ['', [Validators.required,Validators.pattern(this.emailPattern)]],
+            PhoneNumber: ['', [Validators.required, Validators.pattern(this.mobnumPattern)]],
             Status: ['Active']
         });
     }

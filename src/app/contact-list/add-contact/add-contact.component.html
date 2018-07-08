@@ -13,7 +13,7 @@
                                     <label for="name">First Name
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" placeholder="First Name" name="firstname" formControlName="FirstName" class="form-control" />
+                                    <input type="text" placeholder="First Name" name="firstname" pTooltip="First Name" tooltipPosition="top" formControlName="FirstName" class="form-control" />
                                     <div class="required" *ngIf="AddContactForm.get('FirstName').hasError('required') && errorFlagForAdd">
                                         Please enter First Name
                                     </div>
@@ -24,7 +24,7 @@
                                     <label for="name">Last Name
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" placeholder="Last Name" name="lastname" formControlName="LastName" class="form-control" />
+                                    <input type="text" placeholder="Last Name" name="lastname" pTooltip="Last Name" tooltipPosition="top" formControlName="LastName" class="form-control" />
                                     <div class="required" *ngIf="AddContactForm.get('LastName').hasError('required') && errorFlagForAdd">
                                         Please enter Last Name
                                     </div>
@@ -37,9 +37,10 @@
                                     <label for="name">Email
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="email" placeholder="Email" name="email" formControlName="Email" class="form-control" />
-                                    <div class="required" *ngIf="AddContactForm.get('Email').hasError('required') && errorFlagForAdd">
-                                        Please enter Email
+                                    <input type="email" placeholder="Email : XYZ@gmail.com" pTooltip="Email" tooltipPosition="top" name="email" formControlName="Email" class="form-control" />
+                                    <div class="required" *ngIf="(AddContactForm.get('Email').hasError('required') && errorFlagForAdd)||
+                                    (AddContactForm.get('Email').hasError('pattern') && errorFlagForAdd)">
+                                        Please enter valid Email
                                     </div>
                                 </div>
                             </div>
@@ -48,9 +49,10 @@
                                     <label for="name">Phone Number
                                         <span class="required">*</span>
                                     </label>
-                                    <input type="text" placeholder="Phone Number" name="phonenumber" formControlName="PhoneNumber" class="form-control" />
-                                    <div class="required" *ngIf="AddContactForm.get('PhoneNumber').hasError('required') && errorFlagForAdd">
-                                        Please enter Phone Number
+                                    <input type="text" placeholder="Phone Number" name="phonenumber" pTooltip="Phone Number" tooltipPosition="top" formControlName="PhoneNumber" class="form-control" />
+                                    <div class="required" *ngIf="(AddContactForm.get('PhoneNumber').hasError('required') && errorFlagForAdd)||
+                                    (AddContactForm.get('PhoneNumber').hasError('pattern') && errorFlagForAdd)">
+                                        Please enter valid Phone Number
                                     </div>
                                 </div>
                             </div>
