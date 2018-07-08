@@ -1,0 +1,51 @@
+<div class="page-content">
+    <ol class="breadcrumb">
+        <li>
+            <h5 style="color:black;font-size: 15px;font-weight: 700;">Contact List</h5>
+        </li>
+        <li class="pull-right">
+            <a routerLink="add-contact" class="btn btn-warning btn-sm">Add Contact</a>
+        </li>
+    </ol>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="ui-widget-header gridHeader">
+                    <div class="searchHeader">
+                        <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                        <input #gb type="text" pInputText size="25" placeholder="Search">
+                    </div>
+                </div>
+                <p-dataTable #dt [value]="ContactList" [globalFilter]="gb" [responsive]="true" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[10,25,50,100]"
+                    [rows]="10">
+                    <p-column field="FirstName" header="First Name" [sortable]="true" [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}"></p-column>
+                    <p-column field="LastName" header="Last Name" [sortable]="true" [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}"></p-column>
+                    <p-column field="Email" header="Email" [sortable]="true" [style]="{'overflow':'visible','width':'38%','text-align':'left','vertical-align': 'top'}"></p-column>
+                    <p-column field="PhoneNumber" header="Phone Number" [sortable]="true" [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}"></p-column>
+                    <p-column field="Status" header="Status" [sortable]="true" [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}">
+                        <ng-template let-col let-rowData="rowData" pTemplate="body">
+                            <span class="label label-success" *ngIf="rowData[col.field] === 'Active'">Active</span>
+                            <span class="label label-danger" *ngIf="rowData[col.field] === 'Inactive'">Inactive</span>
+                        </ng-template>
+                    </p-column>
+                    <p-column [style]="{'overflow':'visible','text-align':'left','vertical-align': 'top'}" header="Action">
+                        <ng-template let-request="rowData" pTemplate="body">
+                            <button class="btn btn-info btn-circle" pTooltip="Click to update contact" tooltipPosition="left"
+                                (click)="onUpdateRequest(request)">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                            <button class="btn btn-danger btn-circle" pTooltip="Click to delete contact" tooltipPosition="left"
+                            (click)="onDeleteRequest(request)">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                        </ng-template>
+                    </p-column>
+                </p-dataTable>
+            </div>
+        </div>
+        <p-confirmDialog header="Confirmation" icon="fa fa-question-circle"></p-confirmDialog>
+    </div>
+</div>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
+</div>

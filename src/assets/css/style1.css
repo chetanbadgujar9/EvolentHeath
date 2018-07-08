@@ -28,7 +28,7 @@
 #topnav.navbar-indigo a.username:hover,
 #topnav.navbar-indigo a.username:focus,
 #topnav.navbar-indigo a.username:visited {
-  background-color: #3f51b5;
+  background-color: cornflowerblue;
   color:white;
 }
 #topnav.navbar-indigo #toolbar-search .input-group-btn button,

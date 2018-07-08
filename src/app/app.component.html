@@ -9,39 +9,28 @@
         </span>
       </a>
     </span>
-
-    <a class="navbar-brand" (click)="onTitleClick()">
-      <img src="{{Logo}}" alt="logo" class="logo-default">
-    </a>
+      <img src="/assets/evolent.png" alt="logo" class="logo-default">
   </div>
-  <div class="logo-area hidden-xs hidden-sm">
-    <span class="projectName" (click)="onTitleClick()">Vendor Communication System</span>
-  </div>
-  <!-- logo-area -->
 
+  <!-- Logged in user options -->
   <ul class="nav navbar-nav toolbar pull-right">
     <li class="dropdown toolbar-icon-bg">
       <a href="#" class="dropdown-toggle username" data-toggle="dropdown" aria-expanded="false" style="color:white !important">
-        <i class="fa fa-user"></i> {{loggedInUserName ? loggedInUserName : 'NA'}}
+        <i class="fa fa-user"></i> Joe Root
         <i class="fa fa-caret-down"></i>
       </a>
       <ul class="dropdown-menu userinfo arrow">
-        <!-- <li>
-          <a (click)="onAboutMe()">
-            <i class="fa fa-user-circle fa-fw"></i> About Me</a>
-        </li> -->
         <li>
-          <a (click)="onSignInDiffUser()">
-            <i class="fa fa-sign-in fa-fw"></i> Sign in as Different User</a>
+          <a>
+            <i class="fa fa-user-circle fa-fw"></i> About Me</a>
         </li>
         <li class="divider"></li>
         <li>
-          <a (click)="onSignOut()">
+          <a>
             <i class="fa fa-sign-out fa-fw"></i> Logout</a>
         </li>
       </ul>
     </li>
-    <button class="btn btn-warning" (click)="backToAhead();" *ngIf="showBtn">Back to Ahead</button>
   </ul>
 
 </header>
@@ -56,12 +45,9 @@
           <div class="widget">
             <div class="widget-body">
               <div class="userinfo">
-                <!-- <div class="avatar">
-                  <img src="{{Image}}" class="img-responsive img-circle" style="    height: 100%;">
-                </div> -->
                 <div class="info">
-                  <span class="username">{{loggedInUserName ? loggedInUserName : 'NA'}}</span><br>
-                  <span class="useremail">{{userFunction ? userFunction.UserDetail.EMail : ''}}</span>
+                  <span class="username">Joe Root</span><br>
+                  <span class="useremail">joe.root@evolentheath.com</span>
                 </div>
               </div>
             </div>
@@ -72,54 +58,12 @@
                 <li class="nav-separator">
                   <span>Explore</span>
                 </li>
-                <li routerLink="/vendor-communication" routerLinkActive="active">
+                <li routerLink="/contact-list" routerLinkActive="active">
                   <a>
-                    <i class="fa fa-home"></i>
-                    <span>Vendor Communication</span>
+                    <i class="fa fa-address-book"></i>
+                    <span>Contact List</span>
                   </a>
                 </li>
-                <li routerLink="/vendor-discussion" routerLinkActive="active">
-                  <a>
-                    <i class="fa fa-home"></i>
-                    <span>Vendor Discussion</span>
-                  </a>
-                </li>
-                <!-- *ngIf="hasAdminAccess" -->
-                <li class="hasChild" *ngIf="hasAdminAccess">
-                  <a href="javascript:;">
-                    <i class="fa fa-user"></i>
-                    <span>Admin Panel</span>
-                  </a>
-                  <ul class="acc-menu">
-                    <li routerLink="/vendor-mapping" routerLinkActive="active">
-                      <a>Vendor Mapping</a>
-                    </li>
-                    <li routerLink="/brand-notify" routerLinkActive="">
-                      <a>Brand Notify</a>
-                    </li>
-                    <!-- <li>
-                      <a href="layout-sidebar-scroll.html">Scroll Sidebar</a>
-                    </li>
-                    <li>
-                      <a href="layout-horizontal.html">Horizontal Nav</a>
-                    </li>
-                    <li>
-                      <a href="layout-boxed.html">Boxed</a>
-                    </li> -->
-                  </ul>
-                </li>
-                <!-- <li class="hasChild open">
-                  <a href="javascript:;">
-                    <i class="fa fa-university"></i>
-                    <span>RMS</span>
-                  </a>
-                  <ul class="acc-menu" style="display:block;">
-                    <li *ngFor="let menu of rmsMenu">
-                      <a href="{{menu.Path}}">{{menu.Title}} </a>
-                    </li>
-
-                  </ul>
-                </li> -->
               </ul>
             </nav>
           </div>
@@ -138,7 +82,7 @@
         <div class="clearfix">
           <ul class="list-unstyled list-inline pull-left">
             <li>
-              <h6 style="margin: 0;">Bajaj Auto (Browser Compatibility : Chrome > v50.0 , IE > v10.0)</h6>
+              <h6 style="margin: 0;">Evolent Health (Browser Compatibility : Chrome > v50.0 , IE > v10.0)</h6>
             </li>
           </ul>
           <button class="pull-right btn btn-link btn-xs hidden-print" id="back-to-top">

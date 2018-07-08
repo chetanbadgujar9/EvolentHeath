@@ -2,24 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Other Components
-import { CreateVendorCommunicationComponent } from './create-vendor-communication/create-vendor-communication.component';
-import { VendorCommunicationComponent } from './vendor-communication/vendor-communication.component';
-import { ViewRequestComponent } from './view-request/view-request.component';
+import { AddContactComponent } from './contact-list/add-contact/add-contact.component';
+import { ContactListComponent } from './contact-list/contact-list/contact-list.component';
+import { UpdateContactComponent } from './contact-list/update-contact/update-contact.component';
 
 const routes: Routes = [
-    { path: 'vendor-communication', component: VendorCommunicationComponent },
+    { path: 'contact-list', component: ContactListComponent },
     {
-        path: 'vendor-communication', component: VendorCommunicationComponent,
+        path: 'contact-list', component: ContactListComponent,
         children: [
             {
-                path: 'create-vendor-communication', component: CreateVendorCommunicationComponent
+                path: 'add-contact', component: AddContactComponent
             },
             {
-                path: 'view-request/:id', component: ViewRequestComponent,
+                path: 'update-contact/:id', component: UpdateContactComponent,
             }
         ]
     },
-    { path: '**', redirectTo: 'vendor-communication', pathMatch: 'full' }
+    { path: '**', redirectTo: 'contact-list', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -1,0 +1,86 @@
+<!-- style="background:#e0e0e0 !important;" -->
+<div class="side-form" style="background:#e0e0e0 !important;">
+    <div class="row" style="margin-top: 30px;">
+        
+        <div class="col-md-12 col-sm-12 col-lg-12" style="padding-left: 5px;padding-right: 5px;">
+            <div class="panel panel-info" data-widget="{&quot;draggable&quot;: &quot;false&quot;}" data-widget-static="" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);">
+                <div class="panel-heading">
+                    <h2>Update Contact</h2>
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="ng-pristine ng-valid" (ngSubmit)="onUpdateContact(UpdateContactForm)" [formGroup]="UpdateContactForm">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">First Name
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" placeholder="First Name" name="firstname" formControlName="FirstName" class="form-control" />
+                                    <div class="required" *ngIf="UpdateContactForm.get('FirstName').hasError('required') && errorFlagForAdd">
+                                        Please enter First Name
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Last Name
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" placeholder="Last Name" name="lastname" formControlName="LastName" class="form-control" />
+                                    <div class="required" *ngIf="UpdateContactForm.get('LastName').hasError('required') && errorFlagForAdd">
+                                        Please enter Last Name
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Email
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="email" placeholder="Email" name="email" formControlName="Email" class="form-control" />
+                                    <div class="required" *ngIf="UpdateContactForm.get('Email').hasError('required') && errorFlagForAdd">
+                                        Please enter Email
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Phone Number
+                                        <span class="required">*</span>
+                                    </label>
+                                    <input type="text" placeholder="Phone Number" name="phonenumber" formControlName="PhoneNumber" class="form-control" />
+                                    <div class="required" *ngIf="UpdateContactForm.get('PhoneNumber').hasError('required') && errorFlagForAdd">
+                                        Please enter Phone Number
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">Status
+                                    </label>
+                                    <select class="form-control" pTooltip="Status" formControlName="Status" tooltipPosition="top">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="name">
+                                    </label>
+                                    <br>
+                                    <button class="btn btn-primary">Update</button>
+                                    <a class="btn btn-danger" routerLink="/contact-list">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

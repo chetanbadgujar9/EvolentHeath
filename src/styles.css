@@ -212,7 +212,7 @@ input[type="file"] {
 .logo-default{
   height:30px;
   width:150px;
-  margin-top: -12px;
+  margin-top: 5px;
 }
 .projectName{
   color: white;

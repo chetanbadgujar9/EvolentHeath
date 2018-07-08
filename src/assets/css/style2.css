@@ -8598,7 +8598,8 @@ body.topnav-collapsed header.navbar.navbar-default .navbar-collapse .open .tt-dr
   color: rgba(225, 190, 231, 0.5);
 }
 #topnav.navbar-indigo {
-  background: #3f51b5;
+  background: cornflowerblue;
+  z-index: 1;
 }
 #topnav.navbar-indigo .logo-area .toolbar-trigger a span.icon-bg {
   background-color: #5c6bc0;

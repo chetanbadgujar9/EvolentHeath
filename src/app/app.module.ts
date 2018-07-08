@@ -13,20 +13,19 @@ import { AppComponent } from './app.component';
 
 
 // Other Component
-import { CreateVendorCommunicationComponent } from './create-vendor-communication/create-vendor-communication.component';
-import { VendorCommunicationComponent } from './vendor-communication/vendor-communication.component';
-import { ViewRequestComponent } from './view-request/view-request.component';
+import { AddContactComponent } from './contact-list/add-contact/add-contact.component';
+import { ContactListComponent } from './contact-list/contact-list/contact-list.component';
+import { UpdateContactComponent } from './contact-list/update-contact/update-contact.component';
 
 // Services
-import { DashboardService } from './services/dashboard.service';
-import { AuthTokenService } from '../app/shared/services/authToken.service';
+import { ContactService } from './services/contact.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateVendorCommunicationComponent,
-    VendorCommunicationComponent,
-    ViewRequestComponent
+    AddContactComponent,
+    ContactListComponent,
+    UpdateContactComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -37,7 +36,7 @@ import { AuthTokenService } from '../app/shared/services/authToken.service';
     SharedModule.forRoot()
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy },
-  { provide: APP_BASE_HREF, useValue: '/' }, DashboardService, AuthTokenService],
+  { provide: APP_BASE_HREF, useValue: '/' }, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
