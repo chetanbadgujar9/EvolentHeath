@@ -36,12 +36,12 @@ export class ContactService {
         'Email': 'henry.jones@evolenthealth.com',
         'PhoneNumber': '9098909090',
         'Status': 'Inactive',
-    }]
+    }];
 
     constructor(http: Http,
         private _spinnerService: SpinnerService,
         private router: Router) {
-        this.http = http
+        this.http = http;
     }
     getContactList() {
         return this.contactList;
@@ -56,13 +56,13 @@ export class ContactService {
         this.contactList[index].LastName = payload.LastName;
         this.contactList[index].Email = payload.Email;
         this.contactList[index].PhoneNumber = payload.PhoneNumber;
-        this.contactList[index].Status = payload.Status; 
+        this.contactList[index].Status = payload.Status;
     }
     getContactById(id) {
         let _tempContact = _.find(this.contactList, { 'Id': id });
         return _tempContact;
     }
-    deleteContact(id){
+    deleteContact(id) {
         let index = _.findIndex(this.contactList, { 'Id': id });
         this.contactList.splice(index, 1);
     }

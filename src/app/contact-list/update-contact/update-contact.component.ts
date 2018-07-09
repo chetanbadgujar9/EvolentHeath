@@ -17,13 +17,13 @@ import { slideInOutAnimation } from '../../animation/index';
 export class UpdateContactComponent implements OnInit {
     contact: any;
     errorMessage: any;
-    show: boolean = false;
-    errorFlagForAdd: boolean = false;
+    show: boolean;
+    errorFlagForAdd: boolean;
     params: Params;
     /**Form Variables */
     UpdateContactForm: FormGroup;
-    mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
-    emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+    mobnumPattern = '^((\\+91-?)|0)?[0-9]{10}$';
+    emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
     constructor(private _router: Router,
         private _messageService: MessageService,
@@ -32,6 +32,8 @@ export class UpdateContactComponent implements OnInit {
         private formBuilder: FormBuilder) {
     }
     ngOnInit() {
+        this.show = false;
+        this.errorFlagForAdd = false;
         this.setUpdateContactForm();
         this.route.params.forEach((params: Params) => {
             this.params = params['id'];
@@ -42,7 +44,7 @@ export class UpdateContactComponent implements OnInit {
         this.UpdateContactForm = this.formBuilder.group({
             FirstName: ['', [Validators.required]],
             LastName: ['', [Validators.required]],
-            Email: ['', [Validators.required,Validators.pattern(this.emailPattern)]],
+            Email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
             PhoneNumber: ['', [Validators.required, Validators.pattern(this.mobnumPattern)]],
             Status: ['']
         });
@@ -50,11 +52,11 @@ export class UpdateContactComponent implements OnInit {
     getContactById(id) {
         this.contact = this._contactService.getContactById(id);
         this.UpdateContactForm.setValue({
-            FirstName : this.contact.FirstName,
-            LastName : this.contact.LastName,
-            Email : this.contact.Email,
-            PhoneNumber : this.contact.PhoneNumber,
-            Status : this.contact.Status
+            FirstName: this.contact.FirstName,
+            LastName: this.contact.LastName,
+            Email: this.contact.Email,
+            PhoneNumber: this.contact.PhoneNumber,
+            Status: this.contact.Status
         });
     }
     onBack() {
@@ -65,7 +67,9 @@ export class UpdateContactComponent implements OnInit {
             this.errorFlagForAdd = false;
             value.Id = this.contact.Id;
             this._contactService.updateContact(value);
-            this._messageService.addMessage({ severity: 'success', summary: 'Success Message', detail: 'Contact Updated Successfully..!!' });
+            this._messageService.addMessage({
+                severity: 'success', summary: 'Success Message', detail: 'Contact Updated Successfully..!!'
+            });
             this._router.navigate(['/contact-list']);
         } else {
             this.errorFlagForAdd = true;

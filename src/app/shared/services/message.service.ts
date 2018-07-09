@@ -4,7 +4,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class MessageService {
 
     onMessageAdd: EventEmitter<Object> = new EventEmitter<Object>();
-    
     getMessages() {
         return this.onMessageAdd;
     }

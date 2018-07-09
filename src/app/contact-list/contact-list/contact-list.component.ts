@@ -38,7 +38,9 @@ export class ContactListComponent implements OnInit, OnChanges {
             message: 'Are you sure that you want to delete this contact ?',
             accept: () => {
                 this._contactService.deleteContact(request.Id);
-                this._messageService.addMessage({ severity: 'success', summary: 'Success Message', detail: 'Contact Deleted Successfully..!!' });
+                this._messageService.addMessage({
+                    severity: 'success', summary: 'Success Message', detail: 'Contact Deleted Successfully..!!'
+                });
                 this.getContactList();
             }
         });
